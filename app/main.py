@@ -8,6 +8,7 @@ def cache(func: Callable) -> Callable:
         def wrapper(*args, **kwargs) -> tuple:
             kw_parameters = tuple(kwargs.items())
             func_id = (func.__name__, args, kw_parameters)
+
             if func_id in history:
                 print("Getting from cache")
                 return history[func_id]
